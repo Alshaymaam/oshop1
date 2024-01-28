@@ -19,7 +19,7 @@ import { RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AuthService } from './auth.service';
-import { AuthGardService as AuthGard } from './auth-gard.service';
+import { AuthGuardService as AuthGard } from './auth-gard.service';
 import { UserService } from './user.service';
 import { AdminAuthGaurdService as AdminAuthGaurd} from './admin-auth-gaurd.service';
 import { ProductFormComponent } from './admin/product-form/product-form.component';
@@ -43,7 +43,7 @@ import { ProductFormComponent } from './admin/product-form/product-form.componen
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
-    AngularFireDatabaseModule, 
+    AngularFireDatabaseModule,
     RouterModule.forRoot([
       {path:'', component:HomeComponent},
       {path:'products', component:ProductsComponent},
