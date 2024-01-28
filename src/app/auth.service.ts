@@ -5,7 +5,7 @@ import* as firebase from 'firebase/auth';
 import { Observable, of, switchMap} from 'rxjs';
 import { AppUser } from './models/app-user';
 import { UserService } from './user.service';
-import 'rxjs/operators';
+
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +16,7 @@ export class AuthService {
     this.user$= afAuth.authState;
    }
   login(){
-    
+
     let returnUrl= this.route.snapshot.queryParamMap.get('returnUrl')||'/';
     localStorage.setItem('returnUrl',returnUrl);
     this.afAuth.signInWithRedirect(new firebase.GoogleAuthProvider());
@@ -31,7 +31,7 @@ export class AuthService {
         user => {
           if(user)
           return this.userService.get(user.uid).valueChanges();
-        
+
         return of(null)}))
 
   }
